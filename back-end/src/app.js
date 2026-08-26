@@ -19,7 +19,6 @@ const app = express();
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-
 // Caminho correto:
 const distPath = path.join(__dirname, '..', '..', 'front-end', 'dist');
 const indexPath = path.join(distPath, 'index.html');
