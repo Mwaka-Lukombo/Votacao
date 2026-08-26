@@ -28,7 +28,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 app.use(cors({
-  origin: process.env.NODE_ENV === 'production' ? true : 'http://localhost:5173',
+  origin: process.env.NODE_ENV === 'production' ? "https://votacao-7ylw.onrender.com" : 'http://localhost:3000',
   credentials: true
 }));
 
