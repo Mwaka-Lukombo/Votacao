@@ -37,14 +37,37 @@ app.use('/api', Routes);
 // ========== PRODUÇÃO ==========
 if (process.env.NODE_ENV === 'production') {
 
-  if (!fs.existsSync(indexPath)) {
-    console.error('index.html NÃO encontrado! Rode o build do frontend primeiro.');
-  }
+  console.log('distPath:', distPath);
+console.log('indexPath:', indexPath);
+console.log('dist existe:', fs.existsSync(distPath));
+console.log('index existe:', fs.existsSync(indexPath));
 
-  app.use(express.static(distPath));
-  app.get('/{*path}', (req, res) => {
+if (fs.existsSync(distPath)) {
+    console.log('Arquivos do dist:', fs.readdirSync(distPath));
+    console.log(
+        'Arquivos assets:',
+        fs.existsSync(path.join(distPath, 'assets'))
+            ? fs.readdirSync(path.join(distPath, 'assets'))
+            : 'assets não existe'
+    );
+}
+
+app.use(express.static(distPath, {
+    extensions: ['html'],
+    setHeaders: (res, filePath) => {
+        if (filePath.endsWith('.css')) {
+            res.setHeader('Content-Type', 'text/css; charset=UTF-8');
+        }
+
+        if (filePath.endsWith('.js')) {
+            res.setHeader('Content-Type', 'application/javascript; charset=UTF-8');
+        }
+    }
+}));
+
+app.get('/{*path}', (req, res) => {
     res.sendFile(indexPath);
-  });
+});
 }
 
 dbConnect()
