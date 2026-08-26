@@ -2,10 +2,10 @@
   "name": "back-end",
   "version": "1.0.0",
   "description": "",
-  "main": "app.js",
+  "main": "src/app.js",
   "scripts": {
-    "dev": "nodemon app.js",
-    "start": "node app.js",
+    "dev": "nodemon back-end/src/app.js",
+    "start": "node back-end/src/app.js",
     "build": "npm install --prefix front-end --include=dev && npm run build --prefix front-end",
   "build:full": "npm install && npm run build"
   },
