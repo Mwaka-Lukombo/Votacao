@@ -37,11 +37,6 @@ app.use('/api', Routes);
 // ========== PRODUÇÃO ==========
 if (process.env.NODE_ENV === 'production') {
 
-  console.log('distPath:', distPath);
-console.log('indexPath:', indexPath);
-console.log('dist existe:', fs.existsSync(distPath));
-console.log('index existe:', fs.existsSync(indexPath));
-
 if (fs.existsSync(distPath)) {
     console.log('Arquivos do dist:', fs.readdirSync(distPath));
     console.log(

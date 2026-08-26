@@ -17,6 +17,10 @@ import { Loader } from 'lucide-react'
 import { LoaderComponent } from './components/LoaderComponent'
 import { SideBar } from './components/SideBar'
 import { Container } from './components/Container'
+import { VotacoesPage } from './components/VotacoesPage'
+import { ParticipantesPage } from './components/ParticipantesPage'
+import { ResultadosPage } from './components/ResultadosPage'
+import { SettingsPage } from './components/SettingsPage'
 
 
 function App() {
@@ -73,6 +77,40 @@ function App() {
           </Container>
         </PrivateRoute>
        } />
+
+       <Route path='/votacoes' element={
+        <PrivateRoute>
+          <Container>
+            <VotacoesPage />
+          </Container>
+        </PrivateRoute>
+       } />
+
+       <Route path='/participantes' element={
+        <PrivateRoute>
+          <Container>
+            <ParticipantesPage />
+          </Container>
+        </PrivateRoute>
+       } />
+
+       <Route path='/resultados' element={
+        <PrivateRoute>
+          <Container>
+            <ResultadosPage />
+          </Container>
+        </PrivateRoute>
+       } />
+
+       <Route path='/settings' element={
+        <PrivateRoute>
+          <Container>
+            <SettingsPage />
+          </Container>
+        </PrivateRoute>
+       } />
+
+
 
        <Route path='/login' element={
         <PublicRoute>

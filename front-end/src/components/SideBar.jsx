@@ -34,7 +34,7 @@ export const SideBar = () => {
             id: 2,
             name: "Votações",
             icon: PaperBag,
-            link: "/votacaoes"
+            link: "/votacoes"
         },
         {
             id: 3,
@@ -138,7 +138,7 @@ export const SideBar = () => {
                             logout();
                             if (isMobile) setWidth(0);
                         }} 
-                        className={`absolute bottom-10 flex items-center gap-2 hover:text-primary-color transition-colors
+                        className={`absolute bottom-12 md:bottom-10 flex items-center gap-2 hover:text-primary-color transition-colors
                             ${width < 100 ? 'justify-center' : ''}`}
                         style={{ 
                             left: width >= 120 ? '16px' : '16px',

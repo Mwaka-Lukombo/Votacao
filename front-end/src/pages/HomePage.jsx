@@ -3,9 +3,14 @@ import {
   useUser
  } from '../store/userStore'
  import {
-  Bell
+  Bell,
+  ChartArea,
+  Home,
+  PenBox,
+  Users
  } from 'lucide-react';
 import { Title } from '../components/Title';
+import { Card } from '../components/Card';
 
 export const HomePage = () => {
 
@@ -16,7 +21,7 @@ export const HomePage = () => {
 
   
   return (
-    <div>
+    <div className='py-4'>
       
       {/* menu */}
       <div className='flex items-center justify-between'>
@@ -51,6 +56,14 @@ export const HomePage = () => {
             
           </div>
         </div>
+      </div>
+
+      {/* content */}
+      <div className='mt-7 grid md:grid-cols-4 gap-3'>
+        <Card title={"Votações Ativas"} Icon={Home} value={12} status={"Active"}/>
+         <Card title={"Total de Votos"} Icon={ChartArea} value={"12,450"}/>
+          <Card title={"Total Participantes"} Icon={Users} value={"859"} status={"15%"}/>
+          <Card title={"Taxa de Participação"} Icon={PenBox} value={"85%"}/>
       </div>
       
     </div>
